@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Text, View } from "react-native";
+// import { Text, View } from "react-native";
 
-import * as Font from "expo-font";
+// import * as Font from "expo-font";
 import AppLoading from 'expo-app-loading';
+import { useFonts, Inter_900Black } from '@expo-google-fonts/inter';
 import { enableScreens } from 'react-native-screens'
 
 import MealsNavigator from './navigation/MealsNavigator';
@@ -10,22 +11,25 @@ import MealsNavigator from './navigation/MealsNavigator';
 // performance enhancement:
 enableScreens();
 
-const fetchFonts = () => {
-  Font.loadAsync({
+// const fetchFonts = () => {
+  
+// };
+
+export default function App() {
+  let [fontsLoaded] = useFonts(
+    {
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
     "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
   });
-};
 
-export default function App() {
-  const [fontLoaded, setFontLoaded] = useState(false);
+  // const [fontLoaded, setFontLoaded] = useState(false);
 
-  if (!fontLoaded) {
+  if (!fontsLoaded) {
     return (
       <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setFontLoaded(true)}
-        onError={(err) => console.log(err)}
+        // startAsync={fetchFonts}
+        // onFinish={() => setFontLoaded(true)}
+        // onError={(err) => console.log(err)}
       />
     );
   }
