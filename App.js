@@ -38,3 +38,5 @@ export default function App() {
     <MealsNavigator />
   );
 }
+
+console.disableYellowBox = true;
